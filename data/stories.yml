@@ -1,0 +1,70 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: know location
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: know more
+  - action: utter_mainmenu
+  - intent: state
+  - action: utter_pin
+  - intent: pin
+  - action: api_pin_state
+  - action: utter_mainmenu_ret
+- story: know location 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: know more
+  - action: utter_mainmenu
+  - intent: District
+  - action: utter_pin
+  - intent: pin
+  - action: api_pin_dis
+  - action: utter_mainmenu_ret
+
+- story: know location 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: know more
+  - action: utter_mainmenu
+  - intent: city
+  - action: utter_pin
+  - intent: pin
+  - action: api_pin_city
+  - action: utter_mainmenu_ret
+
+- story: welcome
+  steps:
+  - intent: thanks
+  - action: utter_welcome
